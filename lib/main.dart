@@ -1,7 +1,10 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'themes/app_colors.dart';
+import 'pages/home.dart';
+import 'pages/explore.dart';
+import 'pages/profile.dart';
+import 'pages/settings.dart';
 
 void main() {
   runApp(const MainApp());
@@ -24,30 +27,43 @@ class MainView extends StatefulWidget {
 }
 
 class _MainViewState extends State<MainView> {
-  int page = 0;
+  final navigationKey = GlobalKey<CurvedNavigationBarState>();
+  int pageIndex = 0;
+
+  final pages = [
+    const HomePage(),
+    const ExplorePage(),
+    const ProfilePage(),
+    const SettingsPage()
+  ];
+
   final menuItems = const <Widget>[
-    Icon(Icons.home, size: 30, color: Colors.white),
-    Icon(Icons.search, size: 30, color: Colors.white),
-    Icon(Icons.person, size: 30, color: Colors.white),
-    Icon(Icons.settings, size: 30, color: Colors.white),
+    Icon(Icons.home, size: 30),
+    Icon(Icons.search, size: 30),
+    Icon(Icons.person, size: 30),
+    Icon(Icons.settings, size: 30),
   ];
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        extendBody: true,
-        backgroundColor: AppColors.mainBackground,
-        bottomNavigationBar: CurvedNavigationBar(
-            color: AppColors.mainHover,
+    return SafeArea(
+        top: false,
+        child: Scaffold(
+            extendBody: true,
             backgroundColor: AppColors.mainBackground,
-            buttonBackgroundColor: AppColors.mainAccent,
-            index: page,
-            height: 60,
-            items: menuItems,
-            onTap: (index) => setState(() {
-                  page = index;
-                })),
-        body: Center(
-          child: Text(page.toString()),
-        ));
+            bottomNavigationBar: Theme(
+                data: Theme.of(context).copyWith(
+                    iconTheme: const IconThemeData(color: Colors.white)),
+                child: CurvedNavigationBar(
+                    key: navigationKey,
+                    color: AppColors.mainHover,
+                    backgroundColor: AppColors.mainBackground,
+                    buttonBackgroundColor: AppColors.mainAccent,
+                    index: pageIndex,
+                    height: 60,
+                    items: menuItems,
+                    onTap: (index) => setState(() {
+                          pageIndex = index;
+                        }))),
+            body: pages[pageIndex]));
   }
 }
