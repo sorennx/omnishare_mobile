@@ -46,7 +46,6 @@ class _MainViewState extends State<MainView> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-        top: false,
         child: Scaffold(
             extendBody: true,
             backgroundColor: AppColors.mainBackground,
