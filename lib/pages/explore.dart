@@ -11,9 +11,10 @@ class ExplorePage extends StatefulWidget {
 class _ExplorePage extends State<ExplorePage> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-        body: Center(
-      child: Text("Explore"),
-    ));
+    return Scaffold(
+        backgroundColor: AppColors.mainBackground,
+        body: const Center(
+          child: Text("Explore"),
+        ));
   }
 }
