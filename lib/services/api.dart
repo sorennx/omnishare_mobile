@@ -23,6 +23,7 @@ class API {
     final token = data['token'];
     await Store.setToken(token);
   }
+
   Future<void> _saveIsAuth() async {
     Store.isAuthNotifier.value = true;
     await Store.setAuth(true);
@@ -34,8 +35,6 @@ class API {
   }
 
   String _getResult(List<dynamic> json) {
-    // print("data received is $json");
-
     return 'Receive ${json.length} objects';
   }
 

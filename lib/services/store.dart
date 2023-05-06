@@ -8,7 +8,7 @@ class Store {
   static const String _isAuthKey = "AUTH";
 
   static ValueNotifier<bool> isAuthNotifier = ValueNotifier(false);
-  
+
   static Future<void> init() async {
     final auth = await getAuth();
     isAuthNotifier.value = auth == true;
