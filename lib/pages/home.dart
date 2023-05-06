@@ -17,27 +17,7 @@ class _HomePage extends State<HomePage> {
     return Scaffold(
         backgroundColor: AppColors.mainBackground,
         body: Center(
-          child: Column(children: [
-            ElevatedButton(
-                onPressed: () async {
-                  final bool result = await api.dioLogin();
-                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                      content: Text('The result of login is $result')));
-                },
-                child: Text("Login")),
-            ElevatedButton(
-                onPressed: () async {
-                  final result = await api.dioGetData();
-                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                      content: Text('The result of fetch is $result')));
-                },
-                child: Text("Fetch")),
-            ElevatedButton(
-                onPressed: () async {
-                  await Store.clear();
-                },
-                child: Text("Clear Auth")),
-          ]),
+          child: Column(children: []),
         ));
   }
 }

@@ -1,3 +1,4 @@
+import '../services/store.dart';
 import '../themes/app_colors.dart';
 import 'package:flutter/material.dart';
 
@@ -13,8 +14,12 @@ class _SettingsPage extends State<SettingsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: AppColors.mainBackground,
-        body: const Center(
-          child: Text("Settings"),
+        body: Center(
+          child: ElevatedButton(
+                onPressed: () async {
+                  await Store.clear();
+                },
+                child: const Text("Log out")),
         ));
   }
 }

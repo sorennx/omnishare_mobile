@@ -83,11 +83,10 @@ class _LoginPage extends State<LoginPage> {
                           passwordFieldController.text);
                       final dynamic result = await api.dioLogin();
                       if (result == true) {
-                        navigationKey.currentState?.setPage(0);
-
                         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                             backgroundColor: AppColors.mainSuccess,
                             content: const Text('Login successful')));
+                        navigationKey.currentState?.setPage(0);
                       } else {
                         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                             backgroundColor: AppColors.mainError,
