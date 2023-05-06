@@ -23,6 +23,10 @@ class API {
     final token = data['token'];
     await Store.setToken(token);
   }
+  Future<void> _saveIsAuth() async {
+    Store.isAuthNotifier.value = true;
+    await Store.setAuth(true);
+  }
 
   void setLoginDetails(String email, String password) {
     this.email = email;
@@ -44,6 +48,7 @@ class API {
 
       if (response.statusCode == 200) {
         await _saveToken(response.data);
+        await _saveIsAuth();
         return true;
       }
     } on DioError catch (e) {

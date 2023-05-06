@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:omnishare_mobile/services/store.dart';
 import 'package:omnishare_mobile/services/api.dart';
 import 'package:form_field_validator/form_field_validator.dart';
+import './home.dart';
+import '../main.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -81,7 +83,9 @@ class _LoginPage extends State<LoginPage> {
                           passwordFieldController.text);
                       final dynamic result = await api.dioLogin();
                       if (result == true) {
+                        
                         navigationKey.currentState?.setPage(0);
+                        
                         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                             backgroundColor: AppColors.mainSuccess,
                             content: const Text('Login successful')));
@@ -105,7 +109,7 @@ class _LoginPage extends State<LoginPage> {
               const SizedBox(
                 height: 100,
               ),
-              const Text('New User? Create Account')
+              const Text('New User? Create Account'),
             ],
           ),
         ),
