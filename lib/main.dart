@@ -22,7 +22,18 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(title: 'Omnishare', home: MainView());
+    return MaterialApp(
+        title: 'Omnishare',
+        home: const MainView(),
+        theme: ThemeData(
+            textTheme: TextTheme(
+                bodyLarge: TextStyle(
+                    color:
+                        AppColors.mainText), // Set text color for all body text
+                bodyMedium: TextStyle(
+                    color: AppColors
+                        .mainText), // Set text color for all secondary body text
+                titleLarge: TextStyle(color: AppColors.mainText))));
   }
 }
 

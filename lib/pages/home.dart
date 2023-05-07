@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:omnishare_mobile/services/store.dart';
 import 'package:omnishare_mobile/services/api.dart';
 
+import '../widgets/posts/post.dart';
+
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
@@ -17,7 +19,14 @@ class _HomePage extends State<HomePage> {
     return Scaffold(
         backgroundColor: AppColors.mainBackground,
         body: Center(
-          child: Column(children: []),
+          child: ListView(children: [
+            Post(),
+            Post(),
+            Post(),
+            Post(),
+            Post(),
+            Post(),
+          ]),
         ));
   }
 }

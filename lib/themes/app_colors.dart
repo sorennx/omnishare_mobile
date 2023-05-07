@@ -11,6 +11,7 @@ Color rose_600 = const Color.fromARGB(255, 225, 29, 72);
 
 class AppColors {
   static Color mainBackground = grey_800;
+  static Color secondaryBackground = grey_700;
   static Color mainText = grey_100;
   static Color mainHover = grey_700;
   static Color mainAccent = const Color.fromARGB(255, 29, 78, 216);
