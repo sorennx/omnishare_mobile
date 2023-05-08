@@ -80,14 +80,14 @@ class MainViewState extends State<MainView> {
                     ? CurvedNavigationBar(
                         key: navigationKey2,
                         color: AppColors.mainHover,
-                        backgroundColor: AppColors.mainBackground,
+                        backgroundColor: AppColors.mainBackground.withOpacity(0.9),
                         buttonBackgroundColor: AppColors.mainAccent,
                         height: 60,
                         items: const [Icon(Icons.login, size: 30)])
                     : CurvedNavigationBar(
                         key: navigationKey,
                         color: AppColors.mainHover,
-                        backgroundColor: AppColors.mainBackground,
+                        backgroundColor: AppColors.mainBackground.withOpacity(0.9),
                         buttonBackgroundColor: AppColors.mainAccent,
                         index: pageIndex,
                         height: 60,

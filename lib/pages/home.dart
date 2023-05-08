@@ -19,7 +19,7 @@ class _HomePage extends State<HomePage> {
     return Scaffold(
         backgroundColor: AppColors.mainBackground,
         body: Center(
-          child: ListView(children: [
+          child: ListView(children: const [
             Post(),
             Post(),
             Post(),
